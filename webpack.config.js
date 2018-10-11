@@ -15,13 +15,14 @@ module.exports = {
             test: /\.s?css$/,
             use: [
                 'style-loader',
-                'css-loader',
+                'css-loader', 
                 'sass-loader'
             ]
         }]
     },
     devtool: 'cheap-module-source-map',
     devServer: {
-        contentBase: path.join(__dirname, 'public')
+        contentBase: path.join(__dirname, 'public'),
+        historyApiFallback: true // <- tells the browser to load index.html locally instead of from a server
     }
 };
