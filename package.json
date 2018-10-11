@@ -1,0 +1,36 @@
+{
+  "name": "expensify",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "server": "live-server public/",
+    "dev-server": "webpack-dev-server",
+    "build": "webpack",
+    "dev": "concurrently \"yarn run pack\" \"yarn run server\""
+  },
+  "dependencies": {
+    "babel-cli": "6.24.1",
+    "babel-core": "6.25.0",
+    "babel-loader": "7.1.1",
+    "babel-plugin-transform-class-properties": "6.24.1",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "concurrently": "^4.0.1",
+    "css-loader": "0.28.4",
+    "live-server": "^1.2.0",
+    "node-sass": "4.5.3",
+    "normalize.css": "7.0.0",
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2",
+    "react-modal": "2.2.2",
+    "sass-loader": "6.0.6",
+    "style-loader": "0.18.2",
+    "validator": "^10.8.0",
+    "webpack": "3.1.0",
+    "webpack-dev-server": "2.5.1"
+  },
+  "devDependencies": {
+    "webpack-cli": "^3.1.2"
+  }
+}
