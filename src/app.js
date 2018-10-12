@@ -1,86 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-// Used for browser Routing
-import {BrowserRouter, Route, Switch, Link, NavLink} from 'react-router-dom';
+import AppRouter from './routers/AppRouter';
 
-// Used for 404 page, plays youtube video
-import YouTube from 'react-youtube';
-
-// normalize is used to break default values down so app
-// looks the same in all browsers
-import 'normalize.css/normalize.css';
+import 'normalize.css/normalize.css'; // <- normalize is used to break default values down so app looks the same in all browsers
 import './styles/styles.scss'; // <- custom scss files
 
-const ExpenseDashboardPage = () => (
-    <div>
-        <p>Dashboard component yo</p>
-    </div>
-);
-
-const AddExpensePage = () => (
-    <div>
-        <p>all component yo</p>
-    </div>
-);
-
-const EditExpensePage = () => (
-    <div>
-        <p>edit component yo</p>
-    </div>
-);
-
-const HelpPage = () => (
-    <div>
-        <p>HHHHHEEEEELLLLLPPPPP</p>
-    </div>
-);
-
-const _404Opts = {
-    height: '390', 
-    width: '640',
-    playerVars: {
-        autoplay: 1
-    }
-}
-const NotFoundPage = () => (
-    <div>
-        <h1>404 Not Found</h1>
-
-        <YouTube 
-            videoId="ZZ5LpwO-An4"
-            opts={_404Opts}
-        />
-
-        <br />
-        <Link to="/">Go Home</Link>
-    </div>
-);
-
-const Header = () => (
-    <header>
-        <h1>Expensify</h1>
-        <NavLink to="/" activeClassName="is-active" exact={true}>Dashboard </NavLink>
-        <NavLink to="/create" activeClassName="is-active">Create Expense </NavLink>
-        <NavLink to="/edit" activeClassName="is-active">Edit Expense </NavLink>
-        <NavLink to="/help" activeClassName="is-active">Help </NavLink>
-    </header>
-);
-
-const routes = (
-    <BrowserRouter>
-        <div>
-            <Header />
-            <Switch>
-                <Route path="/" component={ExpenseDashboardPage} exact={true}/> {/* exact route so / doesnt get called to every render */}
-                <Route path="/create" component={AddExpensePage} />
-                <Route path="/edit" component={EditExpensePage} />
-                <Route path="/help" component={HelpPage} />
-                <Route component={NotFoundPage} />
-            </Switch>
-        </div>
-        
-    </BrowserRouter>
-);
-
-ReactDOM.render(routes, document.getElementById('app'));
+ReactDOM.render(<AppRouter />, document.getElementById('app'));
