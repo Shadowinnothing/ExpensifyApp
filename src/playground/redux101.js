@@ -21,9 +21,11 @@ const resetCount = () => ({
     type: 'RESET'
 });
 
-// similar to this.setState((prevState) => {});
-const store = createStore((state = {count: 0}, action) => {
-
+// Reducers
+// 1. Reducers are pure functions 
+//   Pure Function = output only determined by input (no global vars)
+// 2. Never change state or action!
+const countReducer = (state = {count: 0}, action) => {
     switch(action.type){
         case 'INCREMENT':
             return {
@@ -43,8 +45,11 @@ const store = createStore((state = {count: 0}, action) => {
             };
         default:
             return state;
-    }
-});
+    };
+};
+
+// similar to this.setState((prevState) => {});
+const store = createStore(countReducer);
 
 // gets called EVERY time the store gets called
 store.subscribe(() => {
