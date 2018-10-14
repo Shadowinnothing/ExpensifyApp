@@ -40,13 +40,13 @@
  * 
  */
 
-const address = ['12141 Bannock St', 'Denver', 'Colorado', '80234'];
-//const address = [];
+// const address = ['12141 Bannock St', 'Denver', 'Colorado', '80234'];
+// //const address = [];
 
-const [, city, state = "Utah"] = address;
+// const [, city, state = "Utah"] = address;
 
-console.log(`You are in ${city}, ${state}`);
+// console.log(`You are in ${city}, ${state}`);
 
-const item = ['coffee (hot)', '$2.00', '$2.50', '$2.75'];
-const [coffee, , mediumCost] = item;
-console.log(`A medium ${coffee} costs ${mediumCost}`);
+// const item = ['coffee (hot)', '$2.00', '$2.50', '$2.75'];
+// const [coffee, , mediumCost] = item;
+// console.log(`A medium ${coffee} costs ${mediumCost}`);
