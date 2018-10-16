@@ -1,5 +1,6 @@
 import {createStore, combineReducers} from 'redux';
 import uuid from 'uuid';
+import _ from 'lodash';
 
 // ADD_EXPENSE
 const addExpense = (
@@ -127,6 +128,17 @@ const filtersReducer = (state = filtersReducerDefaultState, action) => {
     };
 };
 
+// Get Visible expenses
+const getVisibleExpenses = (expenses, {text, sortBy, startDate, endDate}) => {
+  return expenses.filter((expense) => {
+    const startDateMatch = typeof startDate !== 'number' || expense.createdAt >= startDate;
+    const endDateMatch = typeof endDate !== 'number' || expense.createdAt <= endDate;
+    const textMatch = _.toLower(expense.description).includes(_.toLower(text));
+
+    return startDateMatch && endDateMatch && textMatch;
+  });
+};
+
 // Store Creation
 const store = createStore(
     combineReducers({
@@ -136,23 +148,25 @@ const store = createStore(
 );
 
 store.subscribe(() => {
-    console.log(store.getState());
+  const _state = store.getState();
+  const _visibleExpenses = getVisibleExpenses(_state.expenses, _state.filters);
+  console.log(_visibleExpenses);
 });
 
-// const expenseOne = store.dispatch(addExpense({description: 'rent', amount: 100}));
-// const expenseTwo = store.dispatch(addExpense({description: 'cofefe', amount: 350}));
+const expenseOne = store.dispatch(addExpense({description: 'rent', amount: 100, createdAt: 1000}));
+const expenseTwo = store.dispatch(addExpense({description: 'cofefe', amount: 350, createdAt: -1000}));
 //
 // store.dispatch(removeExpense({id: expenseTwo.expense.id}));
 // store.dispatch(editExpense(expenseOne.expense.id, {amount: 69}));
 //
-// store.dispatch(setTextFilter('rent'));
+store.dispatch(setTextFilter('RENT'));
 // store.dispatch(setTextFilter());
 //
 // store.dispatch(sortByAmount());
 // store.dispatch(sortByDate());
 
-store.dispatch(setStartDate(350));
-store.dispatch(setEndDate(985));
+// store.dispatch(setStartDate(-10000));
+// store.dispatch(setEndDate(111110));
 
 // const demoState = {
 //     expenses: [{
