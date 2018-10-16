@@ -136,7 +136,13 @@ const getVisibleExpenses = (expenses, {text, sortBy, startDate, endDate}) => {
     const textMatch = _.toLower(expense.description).includes(_.toLower(text));
 
     return startDateMatch && endDateMatch && textMatch;
-  });
+  }).sort((a, b) => {
+      if(sortBy === 'date'){
+        return a.createdAt < b.createdAt ? 1 : -1;
+      } else if(sortBy === 'amount'){
+        return a.amount < b.amount ? 1 : -1;
+      }
+    });
 };
 
 // Store Creation
@@ -153,13 +159,14 @@ store.subscribe(() => {
   console.log(_visibleExpenses);
 });
 
-const expenseOne = store.dispatch(addExpense({description: 'rent', amount: 100, createdAt: 1000}));
-const expenseTwo = store.dispatch(addExpense({description: 'cofefe', amount: 350, createdAt: -1000}));
-//
+store.dispatch(sortByAmount());
+const expenseTwo = store.dispatch(addExpense({description: 'cofefe', amount: 350, createdAt: -1500}));
+const expenseOne = store.dispatch(addExpense({description: 'rent', amount: 1000, createdAt: 1000}));
+
 // store.dispatch(removeExpense({id: expenseTwo.expense.id}));
 // store.dispatch(editExpense(expenseOne.expense.id, {amount: 69}));
 //
-store.dispatch(setTextFilter('RENT'));
+// store.dispatch(setTextFilter('e'));
 // store.dispatch(setTextFilter());
 //
 // store.dispatch(sortByAmount());
