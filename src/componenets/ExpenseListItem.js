@@ -6,7 +6,7 @@ import {removeExpense} from '../actions/expenses';
 const ExpenseListItem = ({dispatch, description, amount, createdAt, id}) => (
   <div>
     <h3>Description: {description}</h3>
-    <p>${amount} - {createdAt}</p>
+    <p>{amount}(in pennies) - {createdAt}</p>
     <br />
     <button
       onClick={() => {

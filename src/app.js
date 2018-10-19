@@ -19,17 +19,17 @@ import './styles/styles.scss'; // <- custom scss files
 const store = configureStore();
 store.dispatch(addExpense({
   description: 'Water Bill',
-  amount: 120.43,
+  amount: 12043,
   createdAt: 43526000
 }));
 store.dispatch(addExpense({
   description: 'Gas Bill',
-  amount: 84.67,
+  amount: 8467,
   createdAt: 108453
 }));
 store.dispatch(addExpense({
   description: 'Rent',
-  amount: 1095.69,
+  amount: 109569,
   createdAt: 165482
 }));
 
