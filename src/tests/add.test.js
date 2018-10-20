@@ -1,3 +1,5 @@
+// this is an example for the classic. basic stuff
+
 const add = (a, b) => a + b
 
 const generateGreeting = (name = 'Anon') => `Hello ${name}!`;
