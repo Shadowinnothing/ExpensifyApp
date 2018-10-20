@@ -7,7 +7,9 @@
     "server": "live-server public/",
     "dev-server": "webpack-dev-server",
     "build": "webpack",
-    "dev": "concurrently \"yarn run pack\" \"yarn run server\""
+    "dev": "concurrently \"yarn run pack\" \"yarn run server\"",
+    "test": "jest",
+    "test-watch": "jest --watch"
   },
   "dependencies": {
     "babel-cli": "6.24.1",
@@ -41,6 +43,7 @@
     "webpack-dev-server": "2.5.1"
   },
   "devDependencies": {
+    "jest": "20.0.4",
     "webpack-cli": "^3.1.2"
   }
 }
