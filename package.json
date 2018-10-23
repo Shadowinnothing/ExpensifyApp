@@ -8,8 +8,8 @@
     "dev-server": "webpack-dev-server",
     "build": "webpack",
     "dev": "concurrently \"yarn run pack\" \"yarn run server\"",
-    "test": "jest",
-    "test-watch": "jest --watch"
+    "test": "jest --config=jest.config.json",
+    "test-watch": "jest --watch --config=jest.config.json --verbose"
   },
   "dependencies": {
     "babel-cli": "6.24.1",
@@ -21,11 +21,15 @@
     "babel-preset-react": "^6.24.1",
     "concurrently": "^4.0.1",
     "css-loader": "0.28.4",
+    "enzyme": "3.0.0",
+    "enzyme-adapter-react-16": "1.0.0",
+    "enzyme-to-json": "3.0.1",
     "live-server": "^1.2.0",
     "lodash": "^4.17.11",
     "moment": "2.18.1",
     "node-sass": "4.5.3",
     "normalize.css": "7.0.0",
+    "raf": "3.3.2",
     "react": "^16.5.2",
     "react-addons-shallow-compare": "15.6.0",
     "react-dates": "12.7.0",
