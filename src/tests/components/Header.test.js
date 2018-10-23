@@ -8,7 +8,8 @@ describe('components/Header.js', () => {
   test('should render Header correctly', () => {
     const renderer = new ReactShallowRenderer();
     renderer.render(<Header />);
-    console.log(renderer.getRenderOutput());
+    expect(renderer.getRenderOutput()).toMatchSnapshot();
+    //console.log(renderer.getRenderOutput());
   });
 
 });
