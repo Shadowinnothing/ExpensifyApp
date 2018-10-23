@@ -3,6 +3,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
 
+import moment from 'moment';
+
 // components
 import AppRouter from './routers/AppRouter';
 
@@ -33,7 +35,7 @@ store.dispatch(addExpense({
   createdAt: 165482
 }));
 
-const state = store.getState();
+//const state = store.getState();
 //console.log(getVisibleExpenses(state.expenses, state.filters));
 
 const jsx = (

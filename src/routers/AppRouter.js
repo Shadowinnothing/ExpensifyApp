@@ -4,12 +4,12 @@ import React from 'react';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 
 // Components
-import Header from '../componenets/Header';
-import HelpPage from '../componenets/HelpPage';
-import NotFoundPage from '../componenets/NotFoundPage';
-import AddExpensePage from '../componenets/AddExpensePage';
-import EditExpensePage from '../componenets/EditExpensePage';
-import ExpenseDashboardPage from '../componenets/ExpenseDashboardPage';
+import Header from '../components/Header';
+import HelpPage from '../components/HelpPage';
+import NotFoundPage from '../components/NotFoundPage';
+import AddExpensePage from '../components/AddExpensePage';
+import EditExpensePage from '../components/EditExpensePage';
+import ExpenseDashboardPage from '../components/ExpenseDashboardPage';
 
 const AppRouter = () => (
     <BrowserRouter>
