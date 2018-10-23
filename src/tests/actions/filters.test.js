@@ -3,7 +3,7 @@ import moment from 'moment';
 import {setTextFilter, sortByDate, sortByAmount,
   setStartDate, setEndDate} from '../../actions/filters';
 
-describe('actions from actions/filters.js', () => {
+describe('actions/filters.js', () => {
 
   test('should generate setTextFilter', () => {
     const text = 'rent';
