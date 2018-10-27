@@ -17,6 +17,7 @@ import getVisibleExpenses from './selectors/expenses';
 // CSS
 import 'normalize.css/normalize.css'; // <- normalize is used to break default values down so app looks the same in all browsers
 import './styles/styles.scss'; // <- custom scss files
+import 'react-dates/lib/css/_datepicker.css'; // <- makes react-dates look sexy as hell
 
 const store = configureStore();
 store.dispatch(addExpense({

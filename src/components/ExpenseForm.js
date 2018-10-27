@@ -2,8 +2,6 @@ import React, {Component} from 'react';
 import moment from 'moment';
 import {SingleDatePicker} from 'react-dates';
 
-import 'react-dates/lib/css/_datepicker.css'; // <- makes react-dates look sexy as hell
-
 export default class ExpenseForm extends Component {
 
   constructor(props){
