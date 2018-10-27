@@ -7,7 +7,7 @@ import {addExpense} from '../actions/expenses';
 export class AddExpensePage extends Component {
   onSubmit = (expense) => {
     //props.dispatch(addExpense(expense));
-    this.props.onSubmit(expense);
+    this.props.addExpense(expense);
     this.props.history.push('/') // <- switch over to dashboard without full page reload
   };
   render(){
@@ -25,7 +25,7 @@ export class AddExpensePage extends Component {
 // similar to mapStatesToProp but works with dispatch on the store
 // returns an object props that make a call to dispatch
 // does the same thing as the first commented line in AddExpensePage, but makes it easier to test
-const mapDispatchToProps = (dispatch) => ({onSubmit: (expense) => dispatch(addExpense(expense)) });
+const mapDispatchToProps = (dispatch) => ({addExpense: (expense) => dispatch(addExpense(expense)) });
 
 // mapStatesToProp is unedined
 export default connect(undefined, mapDispatchToProps)(AddExpensePage);
