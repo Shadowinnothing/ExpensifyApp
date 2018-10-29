@@ -20,21 +20,21 @@ import './styles/styles.scss'; // <- custom scss files
 import 'react-dates/lib/css/_datepicker.css'; // <- makes react-dates look sexy as hell
 
 const store = configureStore();
-store.dispatch(addExpense({
-  description: 'Water Bill',
-  amount: 12043,
-  createdAt: 43526000
-}));
-store.dispatch(addExpense({
-  description: 'Gas Bill',
-  amount: 8467,
-  createdAt: 108453
-}));
-store.dispatch(addExpense({
-  description: 'Rent',
-  amount: 109569,
-  createdAt: 165482
-}));
+// store.dispatch(addExpense({
+//   description: 'Water Bill',
+//   amount: 12043,
+//   createdAt: 43526000
+// }));
+// store.dispatch(addExpense({
+//   description: 'Gas Bill',
+//   amount: 8467,
+//   createdAt: 108453
+// }));
+// store.dispatch(addExpense({
+//   description: 'Rent',
+//   amount: 109569,
+//   createdAt: 165482
+// }));
 
 //const state = store.getState();
 //console.log(getVisibleExpenses(state.expenses, state.filters));

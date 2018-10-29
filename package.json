@@ -6,7 +6,8 @@
   "scripts": {
     "server": "live-server public/",
     "dev-server": "webpack-dev-server",
-    "build": "webpack",
+    "build:dev": "webpack",
+    "build:prod": "webpack -p --env production",
     "dev": "concurrently \"yarn run pack\" \"yarn run server\"",
     "test": "jest --config=jest.config.json",
     "test-watch-verbose": "jest --watch --config=jest.config.json --verbose",

@@ -1,6 +1,10 @@
 const path = require('path');
 
-module.exports = {
+module.exports = (env) => {
+
+  const isProduction = (env === 'production');
+
+  return {
     entry: './src/app.js',
     output: {
         path: path.join(__dirname, 'public'),
@@ -20,9 +24,10 @@ module.exports = {
             ]
         }]
     },
-    devtool: 'cheap-module-source-map',
+    devtool: isProduction ? 'source-map' : 'cheap-module-source-map',
     devServer: {
         contentBase: path.join(__dirname, 'public'),
         historyApiFallback: true // <- tells the browser to load index.html locally instead of from a server
     }
+  };
 };
