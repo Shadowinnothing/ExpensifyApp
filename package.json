@@ -4,7 +4,6 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "server": "live-server public/",
     "dev-server": "webpack-dev-server",
     "build:dev": "webpack",
     "build:prod": "webpack -p --env production",
@@ -25,12 +24,8 @@
     "babel-preset-react": "^6.24.1",
     "concurrently": "^4.0.1",
     "css-loader": "0.28.4",
-    "enzyme": "3.0.0",
-    "enzyme-adapter-react-16": "1.0.0",
-    "enzyme-to-json": "3.0.1",
     "express": "4.15.4",
     "extract-text-webpack-plugin": "3.0.0",
-    "live-server": "^1.2.0",
     "lodash": "^4.17.11",
     "moment": "2.18.1",
     "node-sass": "4.5.3",
@@ -49,12 +44,15 @@
     "style-loader": "0.18.2",
     "uuid": "3.1.0",
     "validator": "^10.8.0",
-    "webpack": "3.1.0",
-    "webpack-dev-server": "2.5.1"
+    "webpack": "3.1.0"
   },
   "devDependencies": {
     "jest": "20.0.4",
     "react-test-renderer": "16.0.0",
-    "webpack-cli": "^3.1.2"
+    "webpack-cli": "^3.1.2",
+    "enzyme": "3.0.0",
+    "enzyme-adapter-react-16": "1.0.0",
+    "enzyme-to-json": "3.0.1",
+    "webpack-dev-server": "2.5.1"
   }
 }
