@@ -2,6 +2,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const path = require('path');
 const webpack = require('webpack');
 
+// sets up environment variables to determine which DB to write to
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 console.log(process.env.NODE_ENV)
 if(process.env.NODE_ENV === 'test'){
