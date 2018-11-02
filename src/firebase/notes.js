@@ -2,6 +2,40 @@
 * Just some basic notes on how to use the firebase DB
 */
 
+// Example of firebase 'arrays'
+// const firebaseNotes = {
+//   notes: {
+//     asdfghjkl: {
+//       title: 'RODGERS',
+//       body: 'Go Pack Go'
+//     },
+//     lkjhgfdsa: {
+//       title: 'Doncha know',
+//       body: 'Go Pack Go'
+//     }
+//   };
+// };
+//
+// const notes = [{
+//   id: '12',
+//   title: 'RODGERS',
+//   body: 'Go Pack Go'
+// }, {
+//   id: '362era',
+//   title: 'Doncha know',
+//   body: 'Go Pack Go'
+// }];
+//
+// database.ref('notes').set(firebaseNotes);
+
+// // sets up a subscription to alert the client when the DB is changed
+// // also prints a cute little template string
+// const subscription = database.ref().on('value', (snapshot) => {
+//   const user = snapshot.val();
+//   console.log(`${user.name} is a ${user.job.title} at ${user.job.company}`);
+// }, (err) => console.log(err));
+// database.ref().on('value', subscription);
+
 // on uses callback function
 // callbacks can run constantly, promises return once
 // const onValueChange = database.ref().on('value', (snapshot) => {

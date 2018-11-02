@@ -5,10 +5,31 @@ firebase.initializeApp(config);
 
 const database = firebase.database();
 
-// sets up a subscription to alert the client when the DB is changed
-// also prints a cute little template string
-const subscription = database.ref().on('value', (snapshot) => {
-  const user = snapshot.val();
-  console.log(`${user.name} is a ${user.job.title} at ${user.job.company}`);
-}, (err) => console.log(err));
-database.ref().on('value', subscription);
+database.ref('expenses').push({
+  description: 'percocet',
+  note: 'represent',
+  amount: 200,
+  createdAt: 12
+});
+
+database.ref('expenses').push({
+  description: 'molly',
+  note: 'gatta represent',
+  amount: 400,
+  createdAt: 7
+});
+
+database.ref('expenses').push({
+  description: 'fortnite',
+  note: 'yeah idk',
+  amount: 12,
+  createdAt: 23
+});
+
+// database.ref('notes/-LQHk5bOvtG4ofp3R9zQ')
+//   .remove();
+
+// database.ref('notes').push({
+//   title: 'drugs are bad',
+//   body: 'ok'
+// });
