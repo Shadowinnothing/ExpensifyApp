@@ -18,6 +18,9 @@ import 'normalize.css/normalize.css'; // <- normalize is used to break default v
 import './styles/styles.scss'; // <- custom scss files
 import 'react-dates/lib/css/_datepicker.css'; // <- makes react-dates look sexy as hell
 
+// firebase
+import './firebase/firebase';
+
 const store = configureStore();
 // store.dispatch(addExpense({
 //   description: 'Water Bill',
