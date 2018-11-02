@@ -15,9 +15,14 @@ console.log('before');
 
 promise.then((data) => {
   console.log(data);
+  return 'hello!'
+})
+.then((res) => {
+  console.log('this should run');
+  console.log('Will print hello:', res);
 })
 .catch((err) => {
-  console.log(err)
+  console.log(err);
 });
 
 console.log('after');

@@ -6,13 +6,13 @@ import expenses from '../fixtures/expenses';
 
 describe('components/AddExpensePage', () => {
 
-  let addExpenseSpy, historySpy, wrapper;
+  let startAddExpenseSpy, historySpy, wrapper;
 
   beforeEach(() => {
-    addExpenseSpy = jest.fn();
+    startAddExpenseSpy = jest.fn();
     historySpy = {push: jest.fn()};
     wrapper = shallow(<AddExpensePage
-      addExpense={addExpenseSpy}
+      startAddExpense={startAddExpenseSpy}
       history={historySpy}
     />);
   });
@@ -24,7 +24,7 @@ describe('components/AddExpensePage', () => {
   test('should handle onSubmitSpy', () => {
     wrapper.find('ExpenseForm').prop('onSubmit')(expenses[0]);
     expect(historySpy.push).toHaveBeenLastCalledWith('/');
-    expect(addExpenseSpy).toHaveBeenLastCalledWith(expenses[0]);
+    expect(startAddExpenseSpy).toHaveBeenLastCalledWith(expenses[0]);
   });
 
 });
