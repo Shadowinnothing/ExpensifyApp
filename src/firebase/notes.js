@@ -1,6 +1,61 @@
 /*
 * Just some basic notes on how to use the firebase DB
+* the notes go backwards, down at the bottom is more basic stuff
+* were stuff at the top gets super hacker wizardy
 */
+
+// fires when DB child is removed
+// database.ref('expenses').on('child_removed', (snapshot) => {
+//   console.log(snapshot.key, snapshot.val());
+// });
+// fires when DB child is changed
+// database.ref('expenses').on('child_changed', (snapshot) => {
+//   console.log(snapshot.key, snapshot.val());
+// });
+// // fires when child is added
+// database.ref('expenses').on('child_added', (snapshot) => {
+//   console.log(snapshot.key, snapshot.val());
+// });
+
+// create array of returned firebase data
+// database.ref('expenses')
+//   .once('value')
+//   .then((snapshot) => {
+//     const expenses = [];
+//     snapshot.forEach((childSnapshot) => {
+//       expenses.push({
+//         id: childSnapshot.key,
+//         ...childSnapshot.val()
+//       });
+//     });
+//     console.log(expenses);
+//   });
+// database.ref('expenses')
+//   .on('value', (snapshot) => {
+//     const expenses = [];
+//       snapshot.forEach((childSnapshot) => {
+//         expenses.push({
+//           id: childSnapshot.key,
+//           ...childSnapshot.val()
+//         });
+//       });
+//       console.log(expenses);
+//   });
+
+// pushing objects
+// database.ref('expenses').push({
+//   description: 'rent',
+//   note: '',
+//   amount: 200,
+//   createdAt: 12
+// });
+// database.ref('notes/-LQHk5bOvtG4ofp3R9zQ')
+//   .remove();
+// database.ref('notes').push({
+//   title: 'drugs are bad',
+//   body: 'ok'
+// });
+
 
 // Example of firebase 'arrays'
 // const firebaseNotes = {
