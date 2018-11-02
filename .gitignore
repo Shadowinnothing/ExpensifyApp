@@ -2,6 +2,5 @@ node_modules/
 .DS_Store
 yarn-error.log
 public/dist/
-/src/firebase/config.js
 .env.test
 .env.development
