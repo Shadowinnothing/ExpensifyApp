@@ -2,11 +2,11 @@
 
 const promise = new Promise((resolve, reject) => {
   setTimeout(() => {
-    // resolve({
-    //   name: 'Ryan',
-    //   age: 23
-    // });
-    reject('something went wrong');
+    resolve({
+      name: 'Ryan',
+      age: 23
+    });
+    // reject('something went wrong');
   }, 3000);
 
 });
@@ -15,7 +15,11 @@ console.log('before');
 
 promise.then((data) => {
   console.log(data);
-  return 'hello!'
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve('Other promise yo');
+    }, 3000);
+  });
 })
 .then((res) => {
   console.log('this should run');
