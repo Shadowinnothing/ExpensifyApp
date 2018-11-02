@@ -8,7 +8,7 @@
     "build:dev": "webpack",
     "build:prod": "webpack -p --env production",
     "dev": "concurrently \"yarn run pack\" \"yarn run server\"",
-    "test": "jest --config=jest.config.json",
+    "test": "cross-env NODE_ENV=test jest --config=jest.config.json",
     "test-watch-verbose": "jest --watch --config=jest.config.json --verbose",
     "test-watch": "jest --watch --config=jest.config.json",
     "start": "node server/server.js",
@@ -51,6 +51,8 @@
     "webpack": "3.1.0"
   },
   "devDependencies": {
+    "cross-env": "5.0.5",
+    "dotenv": "4.0.0",
     "enzyme": "3.0.0",
     "enzyme-adapter-react-16": "1.0.0",
     "enzyme-to-json": "3.0.1",
