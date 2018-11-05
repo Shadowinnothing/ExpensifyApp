@@ -5,7 +5,7 @@ import {Provider} from 'react-redux';
 import moment from 'moment';
 
 // app router
-import AppRouter from './routers/AppRouter';
+import AppRouter, {history} from './routers/AppRouter';
 
 // store
 import configureStore from './store/configureStore';
@@ -22,25 +22,37 @@ import 'react-dates/lib/css/_datepicker.css'; // <- makes react-dates look sexy 
 import {firebase} from './firebase/firebase';
 
 const store = configureStore();
-
 const jsx = (
   <Provider store={store}>
     <AppRouter />
   </Provider>
 );
 
+// used to prevent app from rerendering
+let hasRendered = false;
+const renderApp = () => {
+  if(!hasRendered){
+    ReactDOM.render(jsx, document.getElementById('app'));
+    hasRendered = true;
+  };
+};
+
 ReactDOM.render(<p>Loading</p>, document.getElementById('app'));
 
-store.dispatch(startSetExpenses())
-  .then(() => {
-    ReactDOM.render(jsx, document.getElementById('app'));
-  });
 
-// for users loging in and out of app
+// for users logging in and out of app
+// history is imported from AppRouter, not the client!
 firebase.auth().onAuthStateChanged((user) => {
   if(user){
-    console.log('log in');
+    // sends expenses from firebase to client
+    store.dispatch(startSetExpenses()).then(() => {renderApp()});
+
+    // if user logs in, take them to dashboard
+    if(history.location.pathname === '/'){
+      history.push('/dashboard');
+    };
   } else {
-    console.log('log out');
+    renderApp();
+    history.push('/'); // if someone logsout, bring them to login page
   }
 });
