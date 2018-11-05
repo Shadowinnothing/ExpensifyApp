@@ -4,7 +4,6 @@ import {Router, Route, Switch} from 'react-router-dom'; // Used for browser Rout
 import createHistory from 'history/createBrowserHistory';
 
 // Components
-import HelpPage from '../components/HelpPage';
 import LoginPage from '../components/LoginPage';
 import NotFoundPage from '../components/NotFoundPage';
 import AddExpensePage from '../components/AddExpensePage';
@@ -13,6 +12,7 @@ import ExpenseDashboardPage from '../components/ExpenseDashboardPage';
 
 // Routers
 import PrivateRoute from './PrivateRoute';
+import PublicRoute from './PublicRoute';
 
 export const history = createHistory();
 
@@ -20,11 +20,10 @@ const AppRouter = () => (
     <Router history={history}>
         <div>
             <Switch>
-                <Route path="/" component={LoginPage} exact={true} /> {/* exact route so / doesnt get called to every render */}
+                <PublicRoute path="/" component={LoginPage} exact={true} /> {/* exact route so / doesnt get called to every render */}
                 <PrivateRoute path="/dashboard" component={ExpenseDashboardPage} />
                 <PrivateRoute path="/create" component={AddExpensePage} />
                 <PrivateRoute path="/edit/:id" component={EditExpensePage} />
-                <Route path="/help" component={HelpPage} />
                 <Route component={NotFoundPage} /> // 404
             </Switch>
         </div>
