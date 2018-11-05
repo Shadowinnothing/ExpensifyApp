@@ -9,7 +9,7 @@ import AppRouter from './routers/AppRouter';
 
 // store
 import configureStore from './store/configureStore';
-import {addExpense, removeExpense, editExpense} from './actions/expenses';
+import {startAddExpense, startSetExpenses} from './actions/expenses';
 import {setTextFilter} from './actions/filters';
 import getVisibleExpenses from './selectors/expenses';
 
@@ -22,24 +22,6 @@ import 'react-dates/lib/css/_datepicker.css'; // <- makes react-dates look sexy 
 import './firebase/firebase';
 
 const store = configureStore();
-// store.dispatch(addExpense({
-//   description: 'Water Bill',
-//   amount: 12043,
-//   createdAt: 43526000
-// }));
-// store.dispatch(addExpense({
-//   description: 'Gas Bill',
-//   amount: 8467,
-//   createdAt: 108453
-// }));
-// store.dispatch(addExpense({
-//   description: 'Rent',
-//   amount: 109569,
-//   createdAt: 165482
-// }));
-
-//const state = store.getState();
-//console.log(getVisibleExpenses(state.expenses, state.filters));
 
 const jsx = (
   <Provider store={store}>
@@ -47,4 +29,9 @@ const jsx = (
   </Provider>
 );
 
-ReactDOM.render(jsx, document.getElementById('app'));
+ReactDOM.render(<p>Loading...</p>, document.getElementById('app'));
+
+store.dispatch(startSetExpenses())
+  .then(() => {
+    ReactDOM.render(jsx, document.getElementById('app'));
+  });
