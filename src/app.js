@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
 import moment from 'moment';
 
-// components
+// app router
 import AppRouter from './routers/AppRouter';
 
 // store
@@ -19,7 +19,7 @@ import './styles/styles.scss'; // <- custom scss files
 import 'react-dates/lib/css/_datepicker.css'; // <- makes react-dates look sexy as hell
 
 // firebase
-import './firebase/firebase';
+import {firebase} from './firebase/firebase';
 
 const store = configureStore();
 
@@ -29,9 +29,18 @@ const jsx = (
   </Provider>
 );
 
-ReactDOM.render(<p>Loading...</p>, document.getElementById('app'));
+ReactDOM.render(<p>Loading</p>, document.getElementById('app'));
 
 store.dispatch(startSetExpenses())
   .then(() => {
     ReactDOM.render(jsx, document.getElementById('app'));
   });
+
+// for users loging in and out of app
+firebase.auth().onAuthStateChanged((user) => {
+  if(user){
+    console.log('log in');
+  } else {
+    console.log('log out');
+  }
+});
