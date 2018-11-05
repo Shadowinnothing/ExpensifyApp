@@ -10,7 +10,7 @@ import AppRouter, {history} from './routers/AppRouter';
 // store
 import configureStore from './store/configureStore';
 import {startAddExpense, startSetExpenses} from './actions/expenses';
-import {setTextFilter} from './actions/filters';
+import {login, logout} from './actions/auth';
 import getVisibleExpenses from './selectors/expenses';
 
 // CSS
@@ -37,13 +37,14 @@ const renderApp = () => {
   };
 };
 
+// rendered loading page until expenses are fetched
 ReactDOM.render(<p>Loading</p>, document.getElementById('app'));
-
 
 // for users logging in and out of app
 // history is imported from AppRouter, not the client!
 firebase.auth().onAuthStateChanged((user) => {
   if(user){
+    store.dispatch(login(user.uid));
     // sends expenses from firebase to client
     store.dispatch(startSetExpenses()).then(() => {renderApp()});
 
@@ -52,6 +53,7 @@ firebase.auth().onAuthStateChanged((user) => {
       history.push('/dashboard');
     };
   } else {
+    store.dispatch(logout());
     renderApp();
     history.push('/'); // if someone logsout, bring them to login page
   }
