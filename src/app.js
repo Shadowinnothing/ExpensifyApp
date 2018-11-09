@@ -24,6 +24,7 @@ import 'react-dates/lib/css/_datepicker.css'; // <- makes react-dates look sexy 
 // firebase
 import {firebase} from './firebase/firebase';
 
+// Start the store and get the app ready to render
 const store = configureStore();
 const jsx = (
   <Provider store={store}>
