@@ -7,6 +7,9 @@ import moment from 'moment';
 // app router
 import AppRouter, {history} from './routers/AppRouter';
 
+// components
+import LoadingPage from './components/LoadingPage';
+
 // store
 import configureStore from './store/configureStore';
 import {startAddExpense, startSetExpenses} from './actions/expenses';
@@ -38,7 +41,7 @@ const renderApp = () => {
 };
 
 // rendered loading page until expenses are fetched
-ReactDOM.render(<p>Loading</p>, document.getElementById('app'));
+ReactDOM.render(<LoadingPage />, document.getElementById('app'));
 
 // for users logging in and out of app
 // history is imported from AppRouter, not the client!
